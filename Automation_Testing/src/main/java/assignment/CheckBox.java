@@ -25,13 +25,15 @@ public void checkBox()
 
 public void checkBox2()
 {
-driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
+    driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
 	
 	WebElement checkbox= driver.findElement(By.xpath("//input[@id='gridCheck']"));
+	
 	if(checkbox.isSelected())
 	{
 		System.out.println("ceckbox is already selected");
-	}
+	}  
+	
 	else
 	{
 		checkbox.click();
