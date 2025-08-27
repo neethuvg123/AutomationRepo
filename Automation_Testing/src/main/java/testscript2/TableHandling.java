@@ -1,5 +1,7 @@
 package testscript2;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,7 +15,8 @@ public class TableHandling extends Base {
 		tableHandling.browserInitialization();
 		//tableHandling.tablePrinting();
 		//tableHandling.rowPrinting();
-		tableHandling.cellPrinting();
+		//tableHandling.cellPrinting();
+		tableHandling.colounmPrinting();
 
 	}
 
@@ -41,5 +44,23 @@ public class TableHandling extends Base {
 		WebElement tablecell= driver.findElement(By.xpath("//table[@id='dtBasicExample']//tbody//tr[2]//td[2]"));
 		System.out.println(tablecell.getText());
 		
+	}
+	public void colounmPrinting()
+	{
+		driver.navigate().to("https://selenium.qabible.in/table-pagination.php");
+		
+		List<WebElement> col= driver.findElements(By.xpath("//table[@id='dtBasicExample']//tbody//tr//td[1]"));
+	     String name= "Rhona Davidson";
+	 
+		for(WebElement col1:col)
+		{    
+			 
+			if(col1.getText().equals(name))
+			{
+				System.out.println("sucess");
+				
+			}
+			
+		}
 	}
 }

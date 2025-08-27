@@ -1,5 +1,7 @@
 package assignment;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -12,7 +14,8 @@ public class CheckBox extends Base {
 		CheckBox box=new CheckBox ();
 		box.browserInitialization();
 		//box.checkBox();
-		box.checkBox2();
+		//box.checkBox2();
+		box.multiSelect();
 
 	}
 public void checkBox()
@@ -38,5 +41,22 @@ public void checkBox2()
 	{
 		checkbox.click();
 	}
+}
+
+public void multiSelect()
+{
+	
+ driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
+	
+  List<WebElement> checkboxes= driver.findElements(By.xpath("//input[@class='check-box-list' and @type='checkbox']"));
+
+  for(WebElement checkbox:checkboxes)
+  {
+	String ids=checkbox.getAttribute("id");
+	if(ids.equals("check-box-one") || ids.equals("check-box-two"))
+	{
+		checkbox.click();
+	}
+}
 }
 }
